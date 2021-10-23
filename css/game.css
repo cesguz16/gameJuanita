@@ -1,0 +1,47 @@
+.board  {
+    display: grid;
+
+    background-image: url("../images/juanis.gif");
+    background-size: 100% 100%;
+    justify-content: center;
+}
+
+
+.square {
+    width: 100%;
+    border: 1px solid white;
+}
+.square:hover{
+    cursor: pointer;
+}
+
+
+.circle {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    border: 1px solid white;
+    background-color: blue;
+}
+.circle:hover{
+    background-color:transparent;
+    cursor: pointer;
+}
+.triangle {
+    width: 0; 
+    height: 0; 
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid green;
+  }
+
+
+.game-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+.game-container img{
+    width: 30px;
+    height: 30px;
+}
