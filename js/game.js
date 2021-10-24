@@ -14,11 +14,11 @@ var selected = null;
 
 
 const jugar = () => {
-    
+
     console.log("jugar fuera");
     let board = $('.board');
     board.empty();
-    
+
     let name = $("#name").val();
     let level = $("#level").val();
     console.log('level:', level);
@@ -30,9 +30,9 @@ const jugar = () => {
 
     let board_size = level * level;
     let size = board_size / 2;
-    
+
     let colors = shuffle_colors(size);
-    
+
     colors.forEach(element => {
         let item = $("<div class='square'></div>");
         item.css("background-color", element.color);
@@ -40,7 +40,7 @@ const jugar = () => {
         board.append(item);
         item.on('click', () => {
             move(item, element);
-            
+
         });
     });
     board.show();
@@ -49,22 +49,21 @@ const jugar = () => {
 const move = (item, current) => {
     console.log(selected);
     console.log(current);
-    if (selected == null){
+    if (selected == null) {
         console.log('Primera opción');
         item.css("border", "1px solid purple");
-        selected={color: current, item:item};
+        selected = { color: current, item: item };
     }
-    else if(selected.color.color === current.color && selected.item !== item){
+    else if (selected.color.color === current.color && selected.item !== item) {
         console.log('COLORES IGUALES');
-        alert('equals!!! 😀');
+        $("#equals").modal();
         item.css("background-color", "transparent");
         selected.item.css("background-color", "transparent");
         selected.item.css("border", "1px solid white");
         selected = null;
     } else {
         console.log('COLORES DIFERENTES');
-        alert('No equals 😢');
-
+        $("#noequals").modal();
         item.css("border", "1px solid white");
         selected.item.css("border", "1px solid white");
         selected = null;
@@ -85,58 +84,6 @@ $(document).ready(function () {
     console.log('loaded');
     let board = $('.board');
     board.hide();
-
     $("#play").on("click", jugar);
-
-    /*
-    const items = level*level;
-    let index = [0,1,2,3,4,5,6,7];
-    let index_colours = index.sort((a,b) =>{
-        return 0.5 - Math.random();
-    });
-    console.log(index_colours);
-    
-    for(i=0; i<items; i++){
-        let item = $("<div class='square'></div>");
-        let board = $('.board');
-        item.on('click',()=>{
-            let current_item = item;
-            console.log('current_item',current_item.css("background-color"));
-            if(selected_item != null && (current_item.css("background-color") === selected_item.css("background-color"))){
-                alert('equals!!! 😀');
-                console.log('equals colors');
-                current_item.css("background-color","transparent");
-                selected_item.css("background-color","transparent");
-                selected_item.css("border","1px solid white");
-                selected_item = null;
-            }
-            else if(selected_item == null){
-                console.log('first option');
-                selected_item = current_item;
-                item.css("border","1px solid purple");
-            } else {
-                
-                alert('No equals 😢');
-                console.log('no equals');
-                item.css("border","1px solid white");
-                selected_item.css("border","1px solid white");
-                current_item.css("border","1px solid white");
-                selected_item = null;
-            }
-            
-            
-        });
-        
-        index.forEach(element => {
-            item.css("background-color",color[element]);    
-        });
-        //item.css("background-color",color[j]);
-        j++;
-        if(j == level*2){
-            j=0;
-        } 
-        board.append(item);
-        
-    }*/
 })
 
