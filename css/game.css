@@ -1,7 +1,11 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
 .board  {
     display: grid;
-
-    background-image: url("../images/juanis.gif");
+    background-image: url("../images/juanis.jpeg");
     background-size: 100% 100%;
     justify-content: center;
 }
@@ -15,7 +19,11 @@
     cursor: pointer;
 }
 
-
+.modal-content{
+    display: flex;
+    justify-content: center;
+    font-size: 60px;
+}
 .circle {
     border-radius: 50%;
     height: 100px;
