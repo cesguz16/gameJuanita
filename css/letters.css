@@ -3,11 +3,13 @@
     padding: 0px;
     margin: 0px;
 }
-.board  {
+.letters-board  {
     display: grid;
-    background-image: url("../images/juanis.jpeg");
+    height: 300px;
+    width: 100%;
     background-size: 100% 100%;
-    justify-content: center;
+    justify-items: center;
+    align-items: center;
 }
 
 
