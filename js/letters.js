@@ -32,5 +32,5 @@ $(document).ready(function () {
 
     console.log('loaded');
     let board = $('.letters-board');
-    init_board(board,"JUANITA");
+    init_board(board,"AEIOU");
 })
